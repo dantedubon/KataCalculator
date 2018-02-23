@@ -8,6 +8,19 @@ export default class Kata {
       const delimitador = numbers.substring(2, 3);
       const resto = numbers.substring(3);
       const arreglo = resto.split(delimitador);
+      let negativos = [];
+      arreglo.forEach(elemento => {
+        if (elemento < 0) {
+          if (negativos.length === 0) {
+            negativos.push(elemento);
+          } else {
+            negativos.push(` ${elemento}`);
+          }
+        }
+      });
+      if (negativos.length > 0) {
+        throw `Negatives not allowed ${negativos}`;
+      }
       const suma = arreglo.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       });
