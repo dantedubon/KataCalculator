@@ -14,6 +14,9 @@ export default class Kata {
       return suma;
     } else {
       const arreglo = numbers.split(/[//n,]/);
+      if (Math.min(...arreglo) < 0) {
+        throw `Negatives not allowed ${Math.min(...arreglo)}`;
+      }
       const suma = arreglo.reduce(function(a, b) {
         return parseInt(a) + parseInt(b);
       });

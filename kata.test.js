@@ -29,4 +29,9 @@ describe("Kata Calculator", () => {
   it("Should thrown an exception on negative numbers", () => {
     expect(() => sut.add("-1")).toThrowError("Negatives not allowed -1");
   });
+  it("Should thrown an exception on negative numbers and list all", () => {
+    expect(() => sut.add("//;\n1;-2;-3")).toThrowError(
+      "Negatives not allowed -2, -3"
+    );
+  });
 });
